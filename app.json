@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "CatFighters 2D",
+    "slug": "catfighters-mobile-tp08",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/gatoFranco.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000",
+          "image": "./assets/gatoFranco.png",
+          "imageWidth": 180,
+          "resizeMode": "contain"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/gatoFranco.png",
+        "backgroundColor": "#000000"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/gatoFranco.png"
+    }
+  }
+}
