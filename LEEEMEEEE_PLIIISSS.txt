@@ -1,0 +1,3 @@
+Este es el estado del tp:
+
+TERMINADO = FALSE
