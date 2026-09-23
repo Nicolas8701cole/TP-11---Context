@@ -8,7 +8,6 @@ function Posteo({ posteo, abrirPosteo, abrirPerfil }) {
   const [likeActivo, setLikeActivo] = useState(false)
   const [cantidadLikes, setCantidadLikes] = useState(posteo.likes)
   const [siguiendo, setSiguiendo] = useState(false)
-  const [guardado, setGuardado] = useState(false)
   const [repostActivo, setRepostActivo] = useState(false)
 
   function darLike() {
@@ -70,8 +69,6 @@ function Posteo({ posteo, abrirPosteo, abrirPerfil }) {
         cantidadLikes={cantidadLikes}
         darLike={darLike}
         abrirPosteo={abrirPosteo}
-        guardado={guardado}
-        cambiarGuardado={() => setGuardado(!guardado)}
         repostActivo={repostActivo}
         cambiarRepost={() => setRepostActivo(!repostActivo)}
       />

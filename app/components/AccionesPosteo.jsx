@@ -1,5 +1,8 @@
+import {useContext} from "react"
 import { Pressable, Share, StyleSheet, Text, View } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+
+import { GuardadosContext } from "../context/GuardadosContext"
 
 function AccionesPosteo({
   posteo,
@@ -7,11 +10,11 @@ function AccionesPosteo({
   cantidadLikes,
   darLike,
   abrirPosteo,
-  guardado,
-  cambiarGuardado,
   repostActivo,
   cambiarRepost,
 }) {
+  const {estaGuardado, cambiarGuardado} = useContext(GuardadosContext)
+  const guardado = estaGuardado(posteo.id)
   async function compartirPosteo() {
     await Share.share({
       message: posteo.caption + "\n" + posteo.imagen,
@@ -52,7 +55,7 @@ function AccionesPosteo({
         </Pressable>
       </View>
 
-      <Pressable style={styles.guardar} onPress={cambiarGuardado}>
+      <Pressable style={styles.guardar} onPress={() => cambiarGuardado(posteo.id)}>
         <Ionicons
           name={guardado ? "bookmark" : "bookmark-outline"}
           size={31}

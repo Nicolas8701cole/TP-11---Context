@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import {
   FlatList,
   Image,
@@ -11,12 +11,14 @@ import {
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { GuardadosContext } from "../context/GuardadosContext"
 
 function DetallePostScreen({ route, navigation }) {
   const { posteo } = route.params
   const [likeActivo, setLikeActivo] = useState(false)
   const [cantidadLikes, setCantidadLikes] = useState(posteo.likes)
-  const [guardado, setGuardado] = useState(false)
+  const { estaGuardado, cambiarGuardado } = useContext(GuardadosContext)
+  const guardado = estaGuardado(posteo.id)
 
   function darLike() {
     if (likeActivo) {
@@ -95,7 +97,7 @@ function DetallePostScreen({ route, navigation }) {
             </Pressable>
           </View>
 
-          <Pressable onPress={() => setGuardado(!guardado)}>
+          <Pressable onPress={() => cambiarGuardado(posteo)}>
             <Ionicons
               name={guardado ? "bookmark" : "bookmark-outline"}
               size={31}
