@@ -8,7 +8,7 @@ export function GuardadosProvider({ children }) {//children es el contenido del 
         return guardados.includes(idPosteo)
     }
 
-    function CambiarGuardado(idPosteo) {
+    function cambiarGuardado(idPosteo) {
         if (guardados.includes(idPosteo)) {
             //filter era clonar solo que lo hacemos sin el id
             const nuevosGuardados = guardados.filter(function (id) {
@@ -27,7 +27,7 @@ export function GuardadosProvider({ children }) {//children es el contenido del 
             value={{
                 guardados,
                 estaGuardado,
-                CambiarGuardado
+                cambiarGuardado
             }}
         >
             {children}
